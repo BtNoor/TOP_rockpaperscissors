@@ -82,7 +82,7 @@ function playRound(playerChoice, computerPlay) {
         if (gameWon > gameLost) {
             result.textContent = "You won the game!";
         } else if (gameWon < gameLost) {
-            result.textContent = "You lost the game! Try again."
+            result.textContent = "You lost the game ! Try again."
         }
         gameCounter = 0;
         gameWon = 0;
