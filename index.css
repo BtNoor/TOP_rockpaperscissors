@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+button {
+    width: 10vh;
+    height: 5vh;
+    font-size: 2.2vh;
+}
+
+.buttonContainer {
+    padding-top: 5vh;
+}
+
+.container {
+    padding-top: 10vh;
+    width: 50%;
+    margin: auto;
+}
+
+#result {
+    padding-top: 10vh;
+}
+
+#rock, #paper, #scissors {
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
