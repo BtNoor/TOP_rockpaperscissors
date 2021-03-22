@@ -1,3 +1,10 @@
+// Javascript selectors for buttons and info displaying on the page
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const score = document.getElementById('score');
+const result = document.getElementById('result');
 
 
 // Main Computer Play Function
@@ -28,46 +35,54 @@ function playRound(playerChoice, computerPlay) {
 
     //Checks for win or lose conditions
     if (playerChoice == computerPlay) {
-        console.log('Draw!');
+        result.textContent = 'Draw!';
         gameCounter++;
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
     } else if (playerChoice == 'rock' && computerPlay == 'paper') {
-        console.log('You lost this round!') 
+        result.textContent = 'You lost this round!'; 
         gameCounter++ 
         gameLost++;
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
     } else if (playerChoice == 'rock' && computerPlay == 'scissors') {
-        console.log('You won this round!')
+        result.textContent = 'You won this round!'
         gameCounter++
         gameWon++;
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
     } else if (playerChoice == 'paper' && computerPlay == 'scissors'){
-        console.log('You lost this round!')
+        result.textContent = 'You lost this round!'
         gameCounter++
         gameLost++;
-    } else if (playerChoice == 'Paper' && computerPlay == 'rock') {
-        console.log("You won this round!")
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
+
+    } else if (playerChoice == 'paper' && computerPlay == 'rock') {
+        result.textContent = "You won this round!"
         gameCounter++
         gameWon++;
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
     } else if (playerChoice == 'scissors' && computerPlay == 'rock') {
-        console.log("You lost this round!")
+        result.textContent = "You lost this round!"
         gameCounter++
         gameLost++;
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
     } else if (playerChoice == 'scissors' && computerPlay == 'paper') {
-        console.log("You won this round!")
+        result.textContent = "You won this round!"
         gameCounter++
         gameWon++;
+        score.textContent = `Games Played: ${gameCounter} Games Won: ${gameWon} \n Games Lost: ${gameLost}`
     } else {
-        userInput()
+        console.log(`playerChoice = ${playerChoice} and computerChoice = ${computerPlay}`)
     }
 
-    if (gameCounter < 5) {
-        userInput();
-    }
+    // if (gameCounter < 5) {
+    //     userInput();
+    // }
 
     //Check for win or lose after 5 games and reset counters
     if (gameCounter >= 5) {
         if (gameWon > gameLost) {
-            console.log("You won the game!")
+            result.textContent = "You won the game!";
         } else if (gameWon < gameLost) {
-            console.log("You lost! Try again.")
+            result.textContent = "You lost the game! Try again."
         }
         gameCounter = 0;
         gameWon = 0;
@@ -77,13 +92,25 @@ function playRound(playerChoice, computerPlay) {
     
 }
 
-function userInput() {
-    let promptInput = prompt("Choose Rock, Paper, or Scissors");
-    let userInput = promptInput.toLowerCase();
-    console.log(userInput)
+// function userInput() {
+//     let promptInput = prompt("Choose Rock, Paper, or Scissors");
+//     let userInput = promptInput.toLowerCase();
+//     console.log(userInput)
 
-    playRound(userInput, computerPlay())
-}
+//     playRound(userInput, computerPlay())
+// }
 
 
-userInput()
+//userInput()
+
+rock.addEventListener('click', () => {
+    playRound('rock', computerPlay())
+  });
+
+paper.addEventListener('click', () => {
+    playRound('paper', computerPlay())
+  });
+
+scissors.addEventListener('click', () => {
+    playRound('scissors', computerPlay())
+  });
